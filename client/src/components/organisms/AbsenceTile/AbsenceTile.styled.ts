@@ -2,7 +2,7 @@ import { ImageBadge as ImageBadgeComp } from '@atoms/ImageBadge/ImageBadge';
 import { Text } from '@atoms/Text/Text';
 import styled from 'styled-components';
 
-export const CarTile = styled.div`
+export const AbsenceTile = styled.div`
   background-color: white;
   border-radius: 16px;
   overflow: hidden;

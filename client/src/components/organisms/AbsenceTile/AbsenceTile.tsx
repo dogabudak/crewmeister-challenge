@@ -34,7 +34,7 @@ export function AbsenceTile({ absence, className, id }: AbsenceTileProps): JSX.E
  */
     //TODO make these optional
   return (
-    <S.CarTile className={className} id={id} data-testid='absence'>
+    <S.AbsenceTile className={className} id={id} data-testid='absence'>
 
       <S.Header weight={700}>
         {startDate} {endDate}
@@ -50,6 +50,6 @@ export function AbsenceTile({ absence, className, id }: AbsenceTileProps): JSX.E
         <Badge>type: {type}</Badge>
         <Badge>rejectedAt: {rejectedAt}</Badge>
       </S.Badges>
-    </S.CarTile>
+    </S.AbsenceTile>
   );
 }

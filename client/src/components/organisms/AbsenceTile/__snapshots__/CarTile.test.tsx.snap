@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CarTile 1`] = `
+exports[`AbsenceTile 1`] = `
 .c5 {
   font-family: 'PT Sans',sans-serif;
   font-style: regular;
@@ -166,7 +166,7 @@ exports[`CarTile 1`] = `
 
 <div
   class="c0"
-  data-testid="cartile"
+  data-testid="absencetile"
 >
   <div
     class="c1"

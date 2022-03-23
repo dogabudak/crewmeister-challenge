@@ -17,7 +17,7 @@ const absence = {
     "userId": 2664
 };
 
-test('CarTile', () => {
+test('AbsenceTile', () => {
     render(<Absence absence={absence}/>);
     expect(screen.getByTestId('absence')).toBeInTheDocument();
     expect(screen.getByTestId('absence')).toMatchSnapshot();
