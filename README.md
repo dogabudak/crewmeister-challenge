@@ -1,11 +1,5 @@
-# InstaMotion Recruitment Task
+# Crew meisters Recruitment Task
 
-Link to the task: [instamotion/recruitment-task](https://github.com/Instamotion/recruitment-task/blob/main/docs/frontend.md)
-
-### Links
-
-- [Frontend](https://demo.im.dunklestoast.de/)
-- [Storybook](https://sb.im.dunklestoast.de/)
 
 ### Requirements
 

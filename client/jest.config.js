@@ -29,7 +29,7 @@ module.exports = {
     },
   },
   displayName: {
-    name: 'Instamotion Recruitment Task',
+    name: 'Crewmeister Recruitment Task',
     color: 'yellow',
   },
 };

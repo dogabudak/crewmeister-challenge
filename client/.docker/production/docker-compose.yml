@@ -11,7 +11,7 @@ services:
     links:
       - server
     networks:
-      - instamotion
+      - crewmeister
       - web
     labels:
       - 'traefik.enable=true'
@@ -26,7 +26,7 @@ services:
       dockerfile: .docker/Server.Dockerfile
     restart: unless-stopped
     networks:
-      - instamotion
+      - crewmeister
     depends_on:
       - redis
     environment:
@@ -50,6 +50,6 @@ services:
       - 'traefik.http.middlewares.imsb.compress=true'
 
 networks:
-  instamotion:
+  crewmeister:
   web:
     external: true
