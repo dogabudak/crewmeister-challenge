@@ -53,8 +53,6 @@ You can set some Parameters in the `.env` File:
 
 | Parameter   | Description                                                      | Default (if not provided) |
 | :---------- | :--------------------------------------------------------------- | :------------------------ |
-| REDIS_HOST  | Defines the host for the Redis Cache Server                      | localhost                 |
-| REDIS_PORT  | Defines the port for the Redis Cache Server                      | 6379                      |
 | SERVER_HOST | Defines the host for the Next.js server                          | 0.0.0.0                   |
 | SERVER_PORT | Defines the post for the Next.js server                          | 1337                      |
 | NODE_ENV    | Defines the node environment. `production` or `development`      |                           |
