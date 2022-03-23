@@ -16,13 +16,12 @@ export function AbsenceTile({ absence, className, id }: AbsenceTileProps): JSX.E
   admitterNote,
   confirmedAt,
   createdAt,
-  crewId,
   endDate,
   memberNote,
   rejectedAt,
   startDate,
   type,
-  userId,
+  member,
   } = absence;
 /*
       <S.ImageContainer>
@@ -35,15 +34,17 @@ export function AbsenceTile({ absence, className, id }: AbsenceTileProps): JSX.E
     //TODO make these optional
   return (
     <S.AbsenceTile className={className} id={id} data-testid='absence'>
-
+      <S.ImageContainer>
+        <S.Image src={member.image} />
+      </S.ImageContainer>
       <S.Header weight={700}>
         {startDate} {endDate}
       </S.Header>
+      <S.Header weight={700}>
+        {member.name}
+      </S.Header>
       <Text>memberNote {memberNote}</Text>
       <S.Badges>
-        <Badge>Confirmed at: {confirmedAt}</Badge>
-        <Badge>userId: {userId}</Badge>
-        <Badge>Crew id {crewId}</Badge>
         <Badge>Created at{createdAt}</Badge>
         <Badge>Admitter Note {admitterNote}</Badge>
         <Badge>Admitter id {admitterId}</Badge>

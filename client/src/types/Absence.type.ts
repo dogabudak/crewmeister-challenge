@@ -1,3 +1,5 @@
+import {Member} from "@type/Member.type";
+
 export type Absence = {
   admitterId?: number
   admitterNote: string
@@ -11,4 +13,5 @@ export type Absence = {
   startDate: string
   type: string
   userId: number
+  member: Member
 };

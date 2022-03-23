@@ -1,6 +1,6 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import {Absence} from './Absence';
+import {AbsenceTile} from './AbsenceTile';
 
 const absence = {
     "admitterId": undefined,
@@ -18,7 +18,7 @@ const absence = {
 };
 
 test('AbsenceTile', () => {
-    render(<Absence absence={absence}/>);
+    render(<AbsenceTile absence={absence}/>);
     expect(screen.getByTestId('absence')).toBeInTheDocument();
     expect(screen.getByTestId('absence')).toMatchSnapshot();
 });
