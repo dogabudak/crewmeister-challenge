@@ -16,15 +16,11 @@ Simply run `yarn install` to install all needed packages. The Post-Install Scrip
 
 ### Development
 
-First of all, you need to start the redis server.
-
 ```bash
 yarn watch:dc
 ```
 
 If you want to start it in background, append `-d`.
-
-When the Redis Server is started, you can start the application you want to:
 
 - Storybook: `yarn watch:sb`
 - Next.js Frontend: `yarn watch`
@@ -57,5 +53,3 @@ You can set some Parameters in the `.env` File:
 1- 3 states should be there (either requested, approved or rejected)
 2- absense type take it proper 
 3- absense date take it from query params 
-4- docker containers
-5- total count is not shown

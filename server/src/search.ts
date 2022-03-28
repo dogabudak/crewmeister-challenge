@@ -5,6 +5,8 @@ const limit = 10;
 export const absences = async (search) => {
     const {page} = search
     const query = searchObjectToMatchQuery(search)
+    // @ts-ignore
+    console.log(JSON.stringify(query))
     const count = await AbsenceModel.count(query);
     const records = await AbsenceModel.aggregate()
         .match(query)
@@ -26,15 +28,14 @@ const searchObjectToMatchQuery = (search) => {
     if (search.type) {
         searchObject.$and.push({type: search.type})
     }
-    if (search.startDate) {
+    if (search.startDate && search.endDate) {
         const startDate = moment(search.startDate,'DD-MM-YYYY').toDate()
-        searchObject.$and.push({startDate: {$lte: startDate}})
-        searchObject.$and.push({endDate: {$gte: startDate}})
-    }
-    if (search.endDate) {
         const endDate = moment(search.endDate,'DD-MM-YYYY').toDate()
-        searchObject.$and.push({endDate: {$gte: endDate}})
-        searchObject.$and.push({startDate: {$lte: endDate}})
+        const dates = {$or: []}
+        dates.$or.push({startDate: {$gte: startDate}},{endDate: {$gte: startDate}})
+        dates.$or.push({startDate: {$gte: startDate}},{endDate: {$lte: endDate}})
+        dates.$or.push({startDate: {$lte: endDate}},{endDate: {$gte: endDate}})
+        searchObject.$and.push(dates)
     }
     return searchObject.$and.length ? searchObject: {}
 }

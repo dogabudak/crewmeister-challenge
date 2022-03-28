@@ -14,7 +14,6 @@ import {AbsenceType} from "@type/Absence.type";
 
 export interface FilterBarProps {
   filters: Filters;
-  // TODO place type to the filter here = > onSubmit: (filters: HTTPFilterBody) => void;
   onSubmit: (filters)=> void;
   queryFilters: QueryFilters;
 }

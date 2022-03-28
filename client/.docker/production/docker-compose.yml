@@ -27,8 +27,6 @@ services:
     restart: unless-stopped
     networks:
       - crewmeister
-    depends_on:
-      - redis
     environment:
       SERVER_PORT: 1337
       SERVER_HOST: 0.0.0.0

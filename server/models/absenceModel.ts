@@ -4,14 +4,14 @@ import {Absences} from "../types/absences";
 export const absenceSchema = new Schema<Absences>({
     admitterId: { type: Number, required: false },
     admitterNote: String,
-    confirmedAt: Date,
+    confirmedAt: { type: Date, required: false },
     createdAt: Date,
     crewId: Number,
-    endDate: String,
+    endDate: Date,
     id: Number,
     memberNote: String,
     rejectedAt: { type: Date, required: false },
-    startDate: String,
+    startDate: Date,
     type: String,
     userId: Number
 });
