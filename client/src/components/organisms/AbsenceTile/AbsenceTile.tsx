@@ -34,7 +34,7 @@ export function AbsenceTile({ absence, className, id }: AbsenceTileProps): JSX.E
       <S.Header weight={700}>
         {member.name}
       </S.Header>
-        {memberNote} <Text>memberNote {memberNote}</Text>
+        <Text>memberNote {memberNote}</Text>
       <S.Badges>
           <Badge>Created at{createdAt}</Badge>
           <Badge>Confirmed at{confirmedAt}</Badge>
