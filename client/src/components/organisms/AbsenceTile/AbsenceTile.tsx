@@ -3,6 +3,9 @@ import { Badge } from '@atoms/Badge/Badge';
 import { Text } from '@atoms/Text/Text';
 import type { Absence } from '@type/Absence.type';
 import * as S from './AbsenceTile.styled';
+import {Status} from "@molecules/Status/Status";
+import {getStatus} from "@helpers/getStatus";
+import {CustomerStatus} from "@type/Status";
 
 export interface AbsenceTileProps {
   absence: Absence;
@@ -23,6 +26,7 @@ export function AbsenceTile({ absence, className, id }: AbsenceTileProps): JSX.E
   type,
   member,
   } = absence;
+  const status = getStatus(absence)
   return (
     <S.AbsenceTile className={className} id={id} data-testid='absence'>
       <S.ImageContainer>
@@ -36,6 +40,7 @@ export function AbsenceTile({ absence, className, id }: AbsenceTileProps): JSX.E
       </S.Header>
         <Text>memberNote {memberNote}</Text>
       <S.Badges>
+          <Status type={status}> {CustomerStatus[status]}</Status>
           <Badge>Created at{createdAt}</Badge>
           <Badge>Confirmed at{confirmedAt}</Badge>
           <Badge>Admitter Note {admitterNote}</Badge>
