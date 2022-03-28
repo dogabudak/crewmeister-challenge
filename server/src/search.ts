@@ -33,8 +33,8 @@ const searchObjectToMatchQuery = (search) => {
         const endDate = moment(search.endDate,'DD-MM-YYYY').toDate()
         const dates = {$or: []}
         dates.$or.push({$and: [{startDate: {$gte: startDate}},{endDate: {$gte: startDate}}]})
-        dates.$or.push({$and:[{startDate: {$gte: startDate}},{endDate: {$lte: endDate}}]})
-        dates.$or.push({$and:[{startDate: {$lte: endDate}},{endDate: {$gte: endDate}}]})
+        //dates.$or.push({$and:[{startDate: {$gte: startDate}},{endDate: {$lte: endDate}}]})
+        //dates.$or.push({$and:[{startDate: {$lte: endDate}},{endDate: {$gte: endDate}}]})
         searchObject.$and.push(dates)
     }
     return searchObject.$and.length ? searchObject: {}

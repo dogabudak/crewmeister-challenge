@@ -36,12 +36,12 @@ export function AbsenceTile({ absence, className, id }: AbsenceTileProps): JSX.E
       </S.Header>
         {memberNote} <Text>memberNote {memberNote}</Text>
       <S.Badges>
-          {createdAt} <Badge>Created at{createdAt}</Badge>
-          {confirmedAt} <Badge>Confirmed at{confirmedAt}</Badge>
-          {admitterNote} <Badge>Admitter Note {admitterNote}</Badge>
-          {admitterId} <Badge>Admitter id {admitterId}</Badge>
-          {type} <Badge>type: {type}</Badge>
-          {rejectedAt} <Badge>rejectedAt: {rejectedAt}</Badge>
+          <Badge>Created at{createdAt}</Badge>
+          <Badge>Confirmed at{confirmedAt}</Badge>
+          <Badge>Admitter Note {admitterNote}</Badge>
+          <Badge>Admitter id {admitterId}</Badge>
+          <Badge>type: {type}</Badge>
+          <Badge>rejectedAt: {rejectedAt}</Badge>
       </S.Badges>
     </S.AbsenceTile>
   );
