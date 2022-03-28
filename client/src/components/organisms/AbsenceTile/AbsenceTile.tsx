@@ -23,15 +23,6 @@ export function AbsenceTile({ absence, className, id }: AbsenceTileProps): JSX.E
   type,
   member,
   } = absence;
-/*
-      <S.ImageContainer>
-        <S.Image src={image} alt={`${make} ${model}`} />
-        <S.ImageBadge>
-          {images.length} {images.length === 1 ? 'Bild' : 'Bilder'}
-        </S.ImageBadge>
-      </S.ImageContainer>
- */
-    //TODO make these optional
   return (
     <S.AbsenceTile className={className} id={id} data-testid='absence'>
       <S.ImageContainer>
@@ -43,13 +34,14 @@ export function AbsenceTile({ absence, className, id }: AbsenceTileProps): JSX.E
       <S.Header weight={700}>
         {member.name}
       </S.Header>
-      <Text>memberNote {memberNote}</Text>
+        {memberNote} && <Text>memberNote {memberNote}</Text>
       <S.Badges>
-        <Badge>Created at{createdAt}</Badge>
-        <Badge>Admitter Note {admitterNote}</Badge>
-        <Badge>Admitter id {admitterId}</Badge>
-        <Badge>type: {type}</Badge>
-        <Badge>rejectedAt: {rejectedAt}</Badge>
+          {createdAt}&& <Badge>Created at{createdAt}</Badge>
+          {confirmedAt}&& <Badge>Confirmed at{confirmedAt}</Badge>
+          {admitterNote}&& <Badge>Admitter Note {admitterNote}</Badge>
+          {admitterId}&& <Badge>Admitter id {admitterId}</Badge>
+          {type}&& <Badge>type: {type}</Badge>
+          {rejectedAt}&& <Badge>rejectedAt: {rejectedAt}</Badge>
       </S.Badges>
     </S.AbsenceTile>
   );

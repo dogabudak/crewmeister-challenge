@@ -15,8 +15,8 @@ export default function Index({ absences, filters }: IndexServerProps['props']):
   return (
     <>
       <Head>
-        <title>Crewmeisters Absences</title>
-        <meta property='og:title' content='Crewmeisters Absences' />
+        <title>Crewmeister Absences</title>
+        <meta property='og:title' content='Crewmeister Absences' />
       </Head>
       <IndexLayout absences={absences} filters={filters} />
     </>

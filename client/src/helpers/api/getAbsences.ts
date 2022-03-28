@@ -1,26 +1,22 @@
 import type { Absence } from '@type/Absence.type';
 import axios from 'axios';
 
-export type GetAbsenceFilter = {
-  type?: string;
-  date?: string;
-};
-
 type GetAbsenceQuery = {
   page: number;
-  sortBy?: string;
   pageSize: number;
   type?: string;
-  date?: string;
+  startDate?: string;
+  endDate?: string;
 };
 
 export async function getAbsences({
   page,
-  sortBy = 'date',
   pageSize,
+  startDate,
+  type,
+  endDate
 }: GetAbsenceQuery): Promise<Absence[]> {
-  // TODO Change here
-  const response = await axios.get('http://localhost:7001/absences',{ params: { page, sortBy, pageSize } });
+  const response = await axios.get('http://localhost:7001/absences',{ params: { page, pageSize,type,startDate,endDate } });
 
   return response.data;
 }

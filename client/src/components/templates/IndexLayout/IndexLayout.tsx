@@ -19,21 +19,18 @@ export function IndexLayout({ absences, filters }: IndexServerProps['props']): J
   const [totalPageCount, setTotalPageCount] = useState(0);
   const router = useRouter();
   const [filter, setFilter] = useState(queryFilterToHTTPFilter(router.query));
-  // TODO filter
-  // TODO see absenses with user information
   useEffect(() => {
     const fetchUsers = async () => {
       if (isLoading) {
         return;
       }
       setLoading(true);
-      const result = await makeRequest(page, {})
+      const result = await makeRequest(page, filter)
       setStoredAbsences(result.records);
-      // TODO this 10 should not be hard coded
       setTotalPageCount(result.count / 10);
       setLoading(false);
     };
-    fetchUsers();
+     fetchUsers();
   }, [filter, page]);
 
   const handleFilter = (selectedFilters) => {
@@ -41,7 +38,7 @@ export function IndexLayout({ absences, filters }: IndexServerProps['props']): J
     setPage(0);
     setFilter(selectedFilters);
 
-    makeRequest(1, selectedFilters).then((result) => {
+    makeRequest(page, selectedFilters).then((result) => {
       setStoredAbsences(result.records);
       setTotalPageCount(result.count / 10);
       setLoading(false);

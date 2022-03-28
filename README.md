@@ -51,3 +51,11 @@ You can set some Parameters in the `.env` File:
 | SERVER_PORT | Defines the post for the Next.js server                          | 1337                      |
 | NODE_ENV    | Defines the node environment. `production` or `development`      |                           |
 | LOG_LEVEL   | Defines the log level. `info`, `error`, `warn`, `trace`, `debug` | `info`                    |
+
+
+// TODO 
+1- 3 states should be there (either requested, approved or rejected)
+2- absense type take it proper 
+3- absense date take it from query params 
+4- docker containers
+5- total count is not shown

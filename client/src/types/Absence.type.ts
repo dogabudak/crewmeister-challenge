@@ -1,5 +1,9 @@
 import {Member} from "@type/Member.type";
 
+export enum AbsenceType {
+  sickness,
+  vacation
+}
 export type Absence = {
   admitterId?: number
   admitterNote: string
@@ -11,7 +15,7 @@ export type Absence = {
   memberNote: string
   rejectedAt?: Date
   startDate: string
-  type: string
+  type: AbsenceType
   userId: number
   member: Member
 };

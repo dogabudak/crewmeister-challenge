@@ -1,14 +1,22 @@
 export type Filters = {
-  date: string[];
+  startDate: string[];
+  endDate: string[];
   type: string[];
 };
 
 export type QueryFilters = {
   type?: string;
-  date?: string;
+  startDate?: string;
+  endDate?: string;
 };
 
 export type FormikFilters = {
-  date?: string;
+  startDate?: string,
+  endDate?: string,
+  type?: string;
+};
+export type HTTPFilterBody = {
+  startDate?: string;
+  endDate?: string;
   type?: string;
 };

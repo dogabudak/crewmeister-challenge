@@ -1,11 +1,16 @@
 import React from 'react';
+import moment from 'moment';
 import { Button } from '@atoms/Button/Button';
 import { buildFilters } from '@helpers/filterBuilder';
+import { ToArray } from '@helpers/enumToArray';
 import { Select } from '@molecules/Select/Select';
 import type { Filters, FormikFilters, QueryFilters } from '@type/Filter.type';
-import { useFormik } from 'formik';
+import {useFormik } from 'formik';
 import { useRouter } from 'next/router';
 import * as S from './Filter.styled';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import {AbsenceType} from "@type/Absence.type";
 
 export interface FilterBarProps {
   filters: Filters;
@@ -17,7 +22,7 @@ export interface FilterBarProps {
 /**
  * Filter Sidebar
  */
-export function Filter({ filters, onSubmit, queryFilters }: FilterBarProps): JSX.Element {
+export function Filter({ onSubmit, queryFilters }: FilterBarProps): JSX.Element {
   const router = useRouter();
 
   const update = async (values: FormikFilters): Promise<void> => {
@@ -30,38 +35,49 @@ export function Filter({ filters, onSubmit, queryFilters }: FilterBarProps): JSX
 
   const formik = useFormik<FormikFilters>({
     initialValues: {
-      type: queryFilters.type,
-      date: queryFilters.date,
+      type: '',
+      startDate: '',
+      endDate: '',
     },
     onSubmit: update,
     validate: update,
     validateOnBlur: true,
   });
- /*
- <Select
-          defaultValue={''}
-          options={filters.type}
-          name='type'
-          localizedName='AbsenceType'
-          initField={true}
-          onChange={formik.handleChange}
-      />
-      <S.Divider />
-      <Select
-          defaultValue={''}
-          options={filters.date}
-          name='date'
-          localizedName='Date'
-          initField={true}
-          onChange={formik.handleChange}
-      />
-  */
+
+
   return (
     <S.Filter data-testid='filterbar'>
       <S.Header weight={700}>Filter</S.Header>
       <S.Divider />
-
+      <Select
+          defaultValue={''}
+          options={ToArray(AbsenceType)}
+          name='type'
+          localizedName='type'
+          initField={true}
+          onChange={formik.handleChange}
+      />
       <S.Divider />
+        Start Date
+        <S.Divider />
+        <DatePicker
+            name='startDate'
+            format='dd-mm-yyyy'
+            selected={formik.values.startDate}
+            onChange={(field)=>{
+                formik.setFieldValue('startDate', field)
+            }}
+            />
+        <S.Divider />
+        End Date
+        <DatePicker
+            name='endDate'
+            format='yyyy-MM-dd'
+            selected={formik.values.endDate}
+            onChange={(field)=>{
+                formik.setFieldValue('endDate', field)
+        }}
+        />
       <Button secondary onClick={() => formik.handleSubmit()} type='submit'>
         Filter anwenden
       </Button>

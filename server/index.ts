@@ -16,6 +16,7 @@ connect('mongodb://localhost:27017/test');
 
 app.get('/absences', async (req, res) => {
     try {
+
         const query = req.query
         const results = await absences(query)
         res.send(results)
