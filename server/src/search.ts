@@ -5,13 +5,11 @@ const limit = 10;
 export const absences = async (search) => {
     const {page} = search
     const query = searchObjectToMatchQuery(search)
-    // @ts-ignore
-    console.log(JSON.stringify(query))
     const count = await AbsenceModel.count(query);
     const records = await AbsenceModel.aggregate()
         .match(query)
-        .limit(limit)
         .skip(limit * page)
+        .limit(limit)
         .lookup({
             from: 'members',
             localField: 'userId',
