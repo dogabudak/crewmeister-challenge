@@ -11,8 +11,12 @@
 ### Installation
 
 Simply run `yarn install` to install all needed packages. The Post-Install Script will also setup the husky hooks.
+If you need to seed the database, please go in to the server folder and run `yarn seed`. This should seed the database from the json object which was given.
 
-## Running the Server
+## To test the application
+Please go in to the server folder and run `yarn start`. On a separate terminal please go in to the client folder and run `yarn watch`. This should start both back
+and front end of the project easily.
+
 
 ### Development
 
@@ -48,8 +52,3 @@ You can set some Parameters in the `.env` File:
 | NODE_ENV    | Defines the node environment. `production` or `development`      |                           |
 | LOG_LEVEL   | Defines the log level. `info`, `error`, `warn`, `trace`, `debug` | `info`                    |
 
-
-// TODO 
-1- 3 states should be there (either requested, approved or rejected)
-2- absense type take it proper 
-3- absense date take it from query params 
