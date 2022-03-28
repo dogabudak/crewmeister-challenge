@@ -6,8 +6,7 @@ import {connect} from "mongoose";
 require('dotenv').config()
 
 const app = express()
-//TODO put this to docker file
-const apiPort = 7001
+const apiPort = process.env.PORT
 
 app.use(bodyParser.json())
 app.use(cors())
